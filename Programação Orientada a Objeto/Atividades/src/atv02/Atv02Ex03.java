@@ -32,6 +32,7 @@ public class Atv02Ex03 extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         btnValidar = new javax.swing.JButton();
         lblDigitoV = new javax.swing.JLabel();
+        lblS = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +69,10 @@ public class Atv02Ex03 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCodigo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblS, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +87,9 @@ public class Atv02Ex03 extends javax.swing.JFrame {
                 .addComponent(btnValidar)
                 .addGap(18, 18, 18)
                 .addComponent(lblDigitoV, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblS, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,6 +140,7 @@ public class Atv02Ex03 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblDigitoV;
+    private javax.swing.JLabel lblS;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 
@@ -140,12 +148,13 @@ public class Atv02Ex03 extends javax.swing.JFrame {
         
         String codigo = txtCodigo.getText();
         int vetor[] = new int[5];
-        for (int i = 1; i < 5; i++){
+        for (int i = 0; i < 5; i++){
             vetor[i] = Integer.parseInt(codigo.substring(i, i+1));
         }
         int s = (6*vetor[0])+(5*vetor[1])+(4*vetor[2])+(3*vetor[3])+(2*vetor[4]);
         
         int digitoV = s % 7;
+        lblS.setText("S="+s);
         lblDigitoV.setText("Digito Verificador: "+digitoV);
     }
 }
