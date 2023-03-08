@@ -43,7 +43,7 @@ public class EstadoDAO implements GenericDAO {
     }
 
     @Override
-    public List<Object> Listar() {
+    public List<Object> listar() {
         List<Object> resultado = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;

@@ -23,17 +23,18 @@
                         <td align="left">${estado.siglaEstado}</td>
                         <td align="right">
                             <a href=
-            "${pageContext.request.contextPath}/EstadoExcluir?idEstado=${estado.idEstado}">
+                                "${pageContext.request.contextPath}/EstadoExcluir?idEstado=${estado.idEstado}">
                         Excluir</a></td>
+                        <td align="center">
                             <a href=
-            "${pageContext.request.contextPath}/EstadoCarregar?idEstado=${estado.idEstado}">
+                                "${pageContext.request.contextPath}/EstadoCarregar?idEstado=${estado.idEstado}">
                         Alterar</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
             
         </table>
-        
+
         <div align="center">
             <a href="${pageContext.request.contextPath}/EstadoNovo">Novo</a>
             <a href="index.jsp">Voltar à Página Inicial</a>
@@ -63,6 +64,8 @@
                         "sLast": "Último"
                     }
                 }
-            })
+            });
         });
 </script>
+
+<%@include file="/footer.jsp"%>

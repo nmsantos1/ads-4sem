@@ -10,5 +10,5 @@ public interface GenericDAO {
     public Boolean alterar(Object objeto);
     public Boolean excluir(int numero);
     public Object carregar(int numero);
-    public List<Object> Listar();
+    public List<Object> listar();
 }

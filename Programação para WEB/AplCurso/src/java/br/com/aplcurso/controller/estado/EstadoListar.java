@@ -36,7 +36,7 @@ public class EstadoListar extends HttpServlet {
         response.setContentType("text/html;charset=iso-8859-1");
         try{
             GenericDAO dao = new EstadoDAO();
-            request.setAttribute("estados", dao.Listar());
+            request.setAttribute("estados", dao.listar());
             request.getRequestDispatcher("/cadastros/estado/estado.jsp").forward(request, response);
         } catch (Exception ex){
             //ex.printStackTrace();
