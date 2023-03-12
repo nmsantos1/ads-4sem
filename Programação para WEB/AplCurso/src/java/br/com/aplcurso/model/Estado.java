@@ -7,19 +7,19 @@ public class Estado {
     private int idEstado;
     private String nomeEstado;
     private String siglaEstado;
-
+    //(sobreposição)Overload>>>>>>>>
     public Estado() {
         this.idEstado = 0;
         this.nomeEstado = "";
         this.siglaEstado = "";
     }
-
+    
     public Estado(int idEstado, String nomeEstado, String siglaEstado) {
         this.idEstado = idEstado;
         this.nomeEstado = nomeEstado;
         this.siglaEstado = siglaEstado;
     }
-
+    //<<<<<<Overload(sobreposição)
     public int getIdEstado() {
         return idEstado;
     }
