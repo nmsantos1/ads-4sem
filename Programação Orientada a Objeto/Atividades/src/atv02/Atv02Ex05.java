@@ -209,6 +209,12 @@ public class Atv02Ex05 extends javax.swing.JFrame {
         double ladoB = Double.parseDouble(txtLadoB.getText());
         double ladoC = Double.parseDouble(txtLadoC.getText());
         
-        
+        if (ladoA == ladoB && ladoB == ladoA) {
+            lblTriangulo.setText("Triângulo equilátero");
+        } else if ((ladoA == ladoB) || (ladoA == ladoC) || (ladoB == ladoC)){
+            lblTriangulo.setText("Triângulo isósceles");
+        } else {
+            lblTriangulo.setText("Triângulo escaleno");
+        }
     }
 }
