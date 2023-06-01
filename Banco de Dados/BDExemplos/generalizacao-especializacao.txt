@@ -1,0 +1,72 @@
+/*se quiser por como campo obrigatório pode por na frente "not null"*/
+create table pessoa(
+	codigo integer primary key,
+	nome varchar(50),
+	email varchar(50),
+	rua varchar(50),
+	bairro varchar(50),
+	numero integer
+);
+
+/*precisa da chave estrangeira, pois ta pegando a chave de pessoa(generalizao)*/
+create table cliente_fisico(
+	tel varchar(20),
+	sexo char(1),
+	idade integer,
+	codigo_pessoa integer,
+	constraint fk_fisico_pessoa foreign key(codigo_pessoa) references pessoa(codigo)
+);
+
+
+create table cliente_juridico(
+	cnpj varchar(30),
+	nome_fantasia varchar(50),
+	codigo_pessoa integer references pessoa(codigo)
+);
+
+create table funcionario_gerente(
+	codigo_gerente integer primary key,
+	salario numeric,
+	formacao_academica varchar(50),
+	codigo_pessoa integer references pessoa(codigo)
+);
+
+create table funcionario_empregado(
+	horas_trab numeric,
+	turno varchar(20),
+	codigo_pessoa integer references pessoa(codigo),
+	codigo_gerente integer references funcionario_gerente(codigo_gerente)
+);/*aqui deve fazer a ligação entre o empregado e o gerente*/
+
+insert into pessoa(codigo, nome, email, rua, bairro, numero)
+	values(1, 'João', 'joao_silva@gmail.com', 'rua 20', 'centro', 1000);
+
+insert into cliente_fisico(tel, sexo, idade, codigo_pessoa)
+	values('(17) 99752-8429', 'F',36, 1);
+
+
+select *from pessoa;
+select *from cliente_fisico;
+
+/*a chave estrangeira aceita (null) como valor, mas a chave primária não*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+create table localidade(
+	cod int primary key,
+	cidade varchar(50)
+);
+
+insert into localidade(cod, cidade) values(1, 'Jales');
+insert into localidade(cod, cidade) values(2, 'Jau');
+
+create table chefe(
+	cod int primary key,
+	codEmpr int references empregado(cod) not null
+);
+
+create table departamento(
+	cod int primary key,
+	nome varchar(50),
+	codChefe int references chefe(cod) not null,
+	dataChefe varchar(10)
+);
+
+create table loc_depart(
+	cod int primary key,
+	codLoc int references localidade(cod),
+	codDepart int references departamento(cod)
+);
+
+create table projeto(
+	cod int primary key,
+	nome varchar(50),
+	codDepart int references departamento(cod),
+	codLoc int references localidade(cod)
+);
+
+insert into projeto(cod, nome, codDepart, codLoc) 
+	values(1, 'Projeto 1', 2, 1);
+insert into projeto(cod, nome, codDepart, codLoc) 
+	values(2, 'Projeto 2', 1, 2);
+
+create table empregado(
+	cod int primary key,
+	nome varchar(50),
+	endereco varchar(100),
+	sal numeric,
+	dataNasc varchar(10),
+	codSuper int references empregado(cod)
+);
+
+
+
+create table empr_proj(
+	cod int primary key,
+	horaTrab varchar(5),
+	codEmpr int references empregado(cod),
+	codProj int references projeto(cod)
+);
+
+create table depart_empr(
+	cod int primary key,
+	codDepart int references departamento(cod),
+	codEmpr int references empregado(cod)
+);
+
+create table emprDependente(
+	cod int primary key,
+	nome varchar(50),
+	sexo varchar(1),
+	dataNasc varchar(10),
+	grauParent varchar(15)
+);
+
+create table empr_depen(
+	cod int primary key,
+	codEmpr int references empregado(cod),
+	codDepen int references emprDependente(cod)
+);
