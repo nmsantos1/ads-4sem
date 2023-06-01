@@ -1,4 +1,6 @@
         <hr>
-        <p>Desenvolvendo Aplicações com Java Web</p>
+        <center>
+            <p>Desenvolvendo Aplicações com Java Web</p>
+        </center>
     </body>
 </html>
